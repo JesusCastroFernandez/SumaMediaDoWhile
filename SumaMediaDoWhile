@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class SumaMediaDoWhile {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int cantidadNumeros, intentosLectura = 0, numerosLeidos = 0;
+        int numero, suma = 0;
+        double media;
+        
+        System.out.print("Introduce la cantidad de números a leer: ");
+        cantidadNumeros = sc.nextInt();
+        
+        if (cantidadNumeros < 1) {
+            System.out.println("Error: la cantidad debe ser un número positivo.");
+            return;
+        }
+        
+        do {
+            System.out.print("Introduce un número entero positivo: ");
+            numero = sc.nextInt();
+            intentosLectura++;
+            
+            if (numero >= 0) {
+                numerosLeidos++;
+                suma += numero;
+            }
+        } while (numerosLeidos < cantidadNumeros);
+        
+        media = (double) suma / numerosLeidos;
+        
+        System.out.println("Se han intentado leer " + intentosLectura + " números.");
+        System.out.println("Se han leído " + numerosLeidos + " números no negativos.");
+        System.out.println("La suma de los números no negativos es " + suma + ".");
+        System.out.println("La media aritmética de los números no negativos es " + media + ".");
+    }
+}
